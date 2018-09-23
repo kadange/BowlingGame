@@ -21,15 +21,22 @@ class BowlingGame {
         cursor = 0;
         for(int frame = 0; frame < 10; frame++){
             if(isStrike()) {
-                score += 10 + rolls[cursor+1] + rolls[cursor+2];
+                score = calculateScore(score, 3);
                 cursorOnNextFrame(1);
             }else if(isSpare()) {
-                score += 10 + rolls[cursor+2];
+                score = calculateScore(score, 3);
                 cursorOnNextFrame(2);
             }else{
-                score += totalFrameScore();
+                score = calculateScore(score, 2);
                 cursorOnNextFrame(2);
             }
+        }
+        return score;
+    }
+
+    private int calculateScore(int score, int loop) {
+        for(int index = 0; index < loop; index++){
+            score += rolls[cursor+index];
         }
         return score;
     }
