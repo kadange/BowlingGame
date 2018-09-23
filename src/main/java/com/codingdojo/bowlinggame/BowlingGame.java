@@ -20,10 +20,10 @@ class BowlingGame {
         int score = 0;
         cursor = 0;
         for(int frame = 0; frame < 10; frame++){
-            if(isStrike(rolls[cursor])) {
+            if(isStrike()) {
                 score += 10 + rolls[cursor+1] + rolls[cursor+2];
                 cursorOnNextFrame(1);
-            }else if(isSpare(cursor)) {
+            }else if(isSpare()) {
                 score += 10 + rolls[cursor+2];
                 cursorOnNextFrame(2);
             }else{
@@ -38,11 +38,11 @@ class BowlingGame {
         cursor += toIncrement;
     }
 
-    private boolean isSpare(int cursor) {
+    private boolean isSpare() {
         return rolls[cursor] + rolls[cursor+1] == 10;
     }
 
-    private boolean isStrike(int roll) {
-        return roll == 10;
+    private boolean isStrike() {
+        return rolls[cursor] == 10;
     }
 }
