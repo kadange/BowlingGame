@@ -44,4 +44,10 @@ public class BowlingMainTest {
         bowlingGame.setScorePerGame(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
         assertThat(bowlingGame.getTotalScore(), is(300));
     }
+
+    @Test
+    public void should_return_total_score_171_when_game_have_strike_and_spare_and_non_total_10_score_per_frame() throws Exception {
+        bowlingGame.setScorePerGame(3,3, 10, 6,4, 3,7, 8,1, 10, 10, 7,3, 9,1, 10,8,1);
+        assertThat(bowlingGame.getTotalScore(), is(171));
+    }
 }
