@@ -2,6 +2,9 @@ package com.codingdojo.bowlinggame;
 
 class BowlingGame {
 
+    public static final int FIRST_ROLL = 0;
+    public static final int SECOND_ROLL = 1;
+    public static final int TOTAL_SCORE_PER_FRAME = 10;
     private int roll = 0;
     private int[] rolls = new int[21];
     private int cursor;
@@ -40,7 +43,7 @@ class BowlingGame {
 
     private int calculateScore(int score, int loop) {
         for(int index = 0; index < loop; index++){
-            score += rolls[cursor+index];
+            score += scorePerRoll(index);
         }
         return score;
     }
@@ -50,14 +53,18 @@ class BowlingGame {
     }
 
     private boolean isSpare() {
-        return totalFrameScore() == 10;
+        return totalFrameScore() == TOTAL_SCORE_PER_FRAME;
     }
 
     private boolean isStrike() {
-        return rolls[cursor] == 10;
+        return scorePerRoll(FIRST_ROLL) == TOTAL_SCORE_PER_FRAME;
     }
 
     private int totalFrameScore() {
-        return rolls[cursor] + rolls[cursor+1];
+        return scorePerRoll(FIRST_ROLL) + scorePerRoll(SECOND_ROLL);
+    }
+
+    private int scorePerRoll(int rollIndex) {
+        return rolls[cursor + rollIndex];
     }
 }
