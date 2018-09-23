@@ -18,6 +18,10 @@ class BowlingGame {
 
     int score() {
         int score = 0;
+        return calculateTotalScore(score);
+    }
+
+    private int calculateTotalScore(int score) {
         cursor = 0;
         for(int frame = 0; frame < 10; frame++){
             if(isStrike()) {
