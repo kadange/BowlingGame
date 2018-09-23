@@ -27,7 +27,7 @@ class BowlingGame {
                 score += 10 + rolls[cursor+2];
                 cursorOnNextFrame(2);
             }else{
-                score += rolls[cursor] + rolls[cursor+1];
+                score += totalFrameScore();
                 cursorOnNextFrame(2);
             }
         }
@@ -39,10 +39,14 @@ class BowlingGame {
     }
 
     private boolean isSpare() {
-        return rolls[cursor] + rolls[cursor+1] == 10;
+        return totalFrameScore() == 10;
     }
 
     private boolean isStrike() {
         return rolls[cursor] == 10;
+    }
+
+    private int totalFrameScore() {
+        return rolls[cursor] + rolls[cursor+1];
     }
 }
