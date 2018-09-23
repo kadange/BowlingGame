@@ -60,12 +60,12 @@ class BowlingGame {
         return totalScorePerFrame(cursor) == TOTAL_SCORE_PER_FRAME;
     }
 
-    private boolean isStrike(int cursor) {
-        return scorePerRoll(cursor, FIRST_ROLL) == TOTAL_SCORE_PER_FRAME;
-    }
-
     private int totalScorePerFrame(int cursor) {
         return scorePerRoll(cursor, FIRST_ROLL) + scorePerRoll(cursor, SECOND_ROLL);
+    }
+
+    private boolean isStrike(int cursor) {
+        return scorePerRoll(cursor, FIRST_ROLL) == TOTAL_SCORE_PER_FRAME;
     }
 
     private int scorePerRoll(int cursor, int rollIndex) {
