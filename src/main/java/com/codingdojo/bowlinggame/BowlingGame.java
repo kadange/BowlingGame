@@ -53,14 +53,14 @@ class BowlingGame {
     }
 
     private boolean isSpare() {
-        return totalFrameScore() == TOTAL_SCORE_PER_FRAME;
+        return totalScorePerFrame() == TOTAL_SCORE_PER_FRAME;
     }
 
     private boolean isStrike() {
         return scorePerRoll(FIRST_ROLL) == TOTAL_SCORE_PER_FRAME;
     }
 
-    private int totalFrameScore() {
+    private int totalScorePerFrame() {
         return scorePerRoll(FIRST_ROLL) + scorePerRoll(SECOND_ROLL);
     }
 
