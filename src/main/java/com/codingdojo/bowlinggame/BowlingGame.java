@@ -12,17 +12,17 @@ class BowlingGame {
     private int roll = 0;
     private int[] rolls = new int[21];
 
-    void roll(int... rolls) {
+    void setScorePerGame(int... rolls) {
         for (int pinsDown : rolls) {
-            roll(pinsDown);
+            setScorePerGame(pinsDown);
         }
     }
 
-    private void roll(int pinsDown) {
+    private void setScorePerGame(int pinsDown) {
         rolls[roll++] = pinsDown;
     }
 
-    int score() {
+    int getTotalScore() {
         int score = 0;
         return calculateTotalScore(score);
     }
