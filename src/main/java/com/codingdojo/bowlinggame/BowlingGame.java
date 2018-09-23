@@ -14,11 +14,11 @@ class BowlingGame {
 
     void setScorePerGame(int... rolls) {
         for (int pinsDown : rolls) {
-            setScorePerGame(pinsDown);
+            setScorePerRoll(pinsDown);
         }
     }
 
-    private void setScorePerGame(int pinsDown) {
+    private void setScorePerRoll(int pinsDown) {
         rolls[roll++] = pinsDown;
     }
 
